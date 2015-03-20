@@ -8,6 +8,7 @@ install:
     - go get github.com/ory-platform/dockertest
     - go get github.com/stretchr/testify/assert
     - go get golang.org/x/tools/cmd/cover
+    - go get code.google.com/p/go-uuid/uuid
 
 script:
      - go test ./... -bench *
