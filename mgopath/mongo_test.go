@@ -4,8 +4,8 @@ import (
     "fmt"
     "testing"
     "github.com/stretchr/testify/assert"
-    "github.com/ory-platform/dockertest"
-    "github.com/ory-platform/common/rand/sequence"
+    "github.com/ory-am/dockertest"
+    "github.com/ory-am/common/rand/sequence"
 )
 
 func TestConnect(t *testing.T) {

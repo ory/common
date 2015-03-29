@@ -1,6 +1,6 @@
-# ory-platform/common
+# ory-am/common
 
-[![Build Status](https://travis-ci.org/ory-platform/common.svg)](https://travis-ci.org/ory-platform/common)
+[![Build Status](https://travis-ci.org/ory-am/common.svg)](https://travis-ci.org/ory-am/common)
 
 A library for common tasks:
 

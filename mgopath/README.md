@@ -5,7 +5,7 @@ Connect to a MongoDB database by using a path like `mongodb://127.0.0.1:27017/my
 ```
 package main
 
-import "github.com/ory-platform/common/mgopath"
+import "github.com/ory-am/common/mgopath"
 import "log"
 
 func main() {
