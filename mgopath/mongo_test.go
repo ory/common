@@ -14,7 +14,8 @@ func TestConnect(t *testing.T) {
     assert.Nil(t, err)
     defer containerID.KillRemove(t)
     path := fmt.Sprintf("mongodb://%s:%d/%s", ip, port, string(dbName))
-    db, err := Connect(path)
+    db, name, err := Connect(path)
     assert.NotNil(t, db)
+    assert.Equals(t, name, string(dbName))
     assert.Nil(t, err)
 }
