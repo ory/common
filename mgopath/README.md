@@ -9,9 +9,11 @@ import "github.com/ory-am/common/mgopath"
 import "log"
 
 func main() {
-    sess, err := mgopath.Connect("mongodb://127.0.0.1:27017/mydatabase")
+    sess, dbname, err := mgopath.Connect("mongodb://127.0.0.1:27017/mydatabase")
     if err != nil {
         log.Fatal(err)
     }
+    db := sess.DB(dbname)
+    // ...
 }
 ```
