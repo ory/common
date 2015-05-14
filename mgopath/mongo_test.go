@@ -16,6 +16,6 @@ func TestConnect(t *testing.T) {
     path := fmt.Sprintf("mongodb://%s:%d/%s", ip, port, string(dbName))
     db, name, err := Connect(path)
     assert.NotNil(t, db)
-    assert.Equals(t, name, string(dbName))
+    assert.Equal(t, name, string(dbName))
     assert.Nil(t, err)
 }
