@@ -2,7 +2,7 @@
 
 Connect to a MongoDB database by using a path like `mongodb://127.0.0.1:27017/mydatabase`:
 
-```
+```go
 package main
 
 import "github.com/ory-am/common/mgopath"
