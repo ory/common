@@ -4,27 +4,23 @@ import (
     "gopkg.in/mgo.v2"
     "net/url"
     "errors"
-    "log"
 )
 
-func Connect(mongoPath string) (*mgo.Database, error) {
+func Connect(mongoPath string) (session *mgo.Session, dbName string, err error) {
     dbConfig, err := url.Parse(mongoPath)
+    dbName = ""
     if err != nil {
-        return nil, err
+        return nil, dbName, err
     }
 
-    log.Printf("Connecting to %s", dbConfig.Host)
-    sess, err := mgo.Dial(dbConfig.Host)
-    if err != nil {
-        return nil, err
+    if session, err = mgo.Dial(dbConfig.Host); err != nil {
+        return nil, dbName, err
     }
 
-    dbName := dbConfig.Path
-    log.Printf("Using database %s", dbName)
+    dbName = dbConfig.Path
     if len(dbName) < 2 {
-        return nil, errors.New("No database name specified.")
+        return nil, dbName, errors.New("No database name specified.")
     }
-
     dbName = dbConfig.Path[1:len(dbConfig.Path)]
-    return sess.DB(dbName), err
+    return session, dbName, err
 }
