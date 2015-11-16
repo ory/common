@@ -4,8 +4,8 @@
 
 A library for common tasks:
 
-* `env` adds defaults to `os.GetEnv()` and saves you 3 lines of code.
-* `mgopath` for mgo.v2 Connect to a MongoDB database by using a path like `mongodb://127.0.0.1:27017/mydatabase`.
-* `rand` is a library based on crypto/rand to create random sequences, which are cryptographically strong.
+* [`env`](env/README.md)  adds defaults to `os.GetEnv()` and saves you 3 lines of code
+* [`rand`](rand/README.md)  is a library based on crypto/rand to create random sequences, which are cryptographically strong.
+* [`compiler`](compiler/README.md) enables you to compile regex expressions from templates like `foo{.*}bar`. Useful for URL pattern matching.
 
 You'll find READMEs in each package directory.
