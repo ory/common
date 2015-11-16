@@ -1,3 +1,14 @@
+// Package compiler offers a regexp compiler which compiles regex templates to regexp.Regexp
+//
+//  reg, err := compiler.CompileRegex("foo:bar.baz:<[0-9]{2,10}>", '<', '>')
+//  // if err != nil ...
+//  reg.MatchString("foo:bar.baz:123")
+//
+//  reg, err := compiler.CompileRegex("/foo/bar/url/{[a-z]+}", '{', '}')
+//  // if err != nil ...
+//  reg.MatchString("/foo/bar/url/abz")
+//
+// This package is adapts github.com/gorilla/mux/regexp.go
 package compiler
 
 // Copyright 2012 The Gorilla Authors. All rights reserved.
@@ -53,13 +64,13 @@ func delimiterIndices(s string, delimiterStart, delimiterEnd byte) ([]int, error
 			if level--; level == 0 {
 				idxs = append(idxs, idx, i+1)
 			} else if level < 0 {
-				return nil, fmt.Errorf("mux: unbalanced braces in %q", s)
+				return nil, fmt.Errorf(`Unbalanced braces in "%q"`, s)
 			}
 		}
 	}
 
 	if level != 0 {
-		return nil, fmt.Errorf("mux: unbalanced braces in %q", s)
+		return nil, fmt.Errorf(`Unbalanced braces in "%q"`, s)
 	}
 
 	return idxs, nil
@@ -70,7 +81,7 @@ func delimiterIndices(s string, delimiterStart, delimiterEnd byte) ([]int, error
 // You can define your own delimiters. It is e.g. common to use curly braces {} but I recommend using characters
 // which have no special meaning in Regex, e.g.: <, >
 //
-//  reg, err := compiler.CompileRegex("foo:bar.baz:<[0-9]{2,10}>", "<", ">")
+//  reg, err := compiler.CompileRegex("foo:bar.baz:<[0-9]{2,10}>", '<', '>')
 //  // if err != nil ...
 //  reg.MatchString("foo:bar.baz:123")
 func CompileRegex(tpl string, delimiterStart, delimiterEnd byte) (*regexp.Regexp, error) {
