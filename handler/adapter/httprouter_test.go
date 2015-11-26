@@ -3,6 +3,7 @@ package adapter
 import (
 	"github.com/julienschmidt/httprouter"
 	cc "github.com/ory-am/common/context"
+	"github.com/ory-am/common/handler"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/net/context"
 	"net/http"
@@ -10,13 +11,31 @@ import (
 )
 
 func TestNewHttpRouterAdapter(t *testing.T) {
-	called := false
+	called := 0
 	params := httprouter.Params{{"foo", "bar"}}
 	NewHttpRouterAdapter(
 		context.Background(),
+		func(next handler.ContextHandler) handler.ContextHandler {
+			return handler.ContextHandlerFunc(func(ctx context.Context, rw http.ResponseWriter, req *http.Request) {
+				if called == 0 {
+					called = 1
+				}
+				next.ServeHTTPContext(ctx, rw, req)
+			})
+		},
+		func(next handler.ContextHandler) handler.ContextHandler {
+			return handler.ContextHandlerFunc(func(ctx context.Context, rw http.ResponseWriter, req *http.Request) {
+				if called == 1 {
+					called = 2
+				}
+				next.ServeHTTPContext(ctx, rw, req)
+			})
+		},
 	).ThenFunc(func(ctx context.Context, r http.ResponseWriter, w *http.Request) {
-		called = true
+		if called == 2 {
+			called = 3
+		}
 		assert.Equal(t, params, cc.GetRouterParamsFromContext(ctx))
 	})(nil, nil, params)
-	assert.True(t, called)
+	assert.Equal(t, 3, called)
 }
