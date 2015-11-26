@@ -1,7 +1,6 @@
 package sequence
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"regexp"
 	"testing"
@@ -18,6 +17,7 @@ func TestRunePatterns(t *testing.T) {
 		{AlphaNum, "[a-zA-Z0-9]{62}"},
 		{AlphaLowerNum, "[a-z0-9]{36}"},
 		{AlphaUpperNum, "[A-Z0-9]{36}"},
+		{Numeric, "[0-9]{10}"},
 	} {
 		valid, err := regexp.Match(v.shouldMatch, []byte(string(v.runes)))
 		assert.Nil(t, err, "Case %d", k)
@@ -26,24 +26,26 @@ func TestRunePatterns(t *testing.T) {
 }
 
 func TestRuneSequenceMatchesPattern(t *testing.T) {
-	length := 25
-	patterns := [][]rune{
-		[]rune("abcdefghijklmnopqrstuvwxyz"),
-		[]rune("abcdefghijklmnopqrstuvwxyz1234567890"),
-	}
-	regx := []string{
-		fmt.Sprintf("[a-z]{%d}", length),
-		fmt.Sprintf("[a-z0-9]{%d}", length),
-	}
+	for k, v := range []struct {
+		runes       []rune
+		shouldMatch string
+		length      int
+	}{
+		{Alpha, "[a-zA-Z]+", 25},
+		{AlphaLower, "[a-z]+", 46},
+		{AlphaUpper, "[A-Z]+", 21},
+		{AlphaNum, "[a-zA-Z0-9]+", 123},
+		{AlphaLowerNum, "[a-z0-9]+", 41},
+		{AlphaUpperNum, "[A-Z0-9]+", 94914},
+		{Numeric, "[0-9]+", 94914},
+	} {
+		seq, err := RuneSequence(v.length, v.runes)
+		assert.Nil(t, err, "case %d", k)
+		assert.Equal(t, v.length, len(seq), "case %d", k)
 
-	for k, v := range patterns {
-		seq, err := RuneSequence(length, v)
-		assert.Nil(t, err)
-		assert.Equal(t, length, len(seq))
-
-		valid, err := regexp.Match(regx[k], []byte(string(seq)))
-		assert.Nil(t, err)
-		assert.True(t, valid)
+		valid, err := regexp.Match(v.shouldMatch, []byte(string(seq)))
+		assert.Nil(t, err, "case %d", k)
+		assert.True(t, valid, "case %d\nrunes %s\nresult %s", k, v.runes, string(seq))
 	}
 }
 
