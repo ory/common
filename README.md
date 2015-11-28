@@ -9,4 +9,7 @@ A library for common tasks:
 * [`rand`](rand/README.md)  is a library based on crypto/rand to create random sequences, which are cryptographically strong.
 * [`compiler`](compiler/README.md) enables you to compile regex expressions from templates like `foo{.*}bar`. Useful for URL pattern matching.
 
+
 You'll find READMEs in each package directory.
+
+This library also includes packages called `pkg` and `context`. Both are subject to frequent changes. *Don't use them.*

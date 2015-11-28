@@ -37,4 +37,10 @@ func TestWriteJSON(t *testing.T) {
 
 	WriteJSON(r, func() {})
 	assert.Equal(t, http.StatusInternalServerError, r.code)
+
+	WriteCreatedJSON(r, "location", js)
+	assert.Equal(t, http.StatusCreated, r.code)
+	assert.Equal(t, `{"foo":"bar"}`, string(r.written))
+	assert.Equal(t, r.Header().Get("Content-Type"), "application/json")
+	assert.Equal(t, r.Header().Get("Location"), "location")
 }
