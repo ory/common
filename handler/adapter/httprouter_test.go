@@ -35,7 +35,9 @@ func TestNewHttpRouterAdapter(t *testing.T) {
 		if called == 2 {
 			called = 3
 		}
-		assert.Equal(t, params, cc.GetRouterParamsFromContext(ctx))
+		vars, err := cc.FetchRouterParamsFromContext(ctx, "foo")
+		assert.Nil(t, err)
+		assert.Equal(t, "bar", vars["foo"])
 	})(nil, nil, params)
 	assert.Equal(t, 3, called)
 }

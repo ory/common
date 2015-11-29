@@ -5,6 +5,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory-am/common/handler"
 	"golang.org/x/net/context"
+	"strings"
 )
 
 var RouterParamKey handler.Key = 0
@@ -13,22 +14,17 @@ func NewContextFromRouterParams(ctx context.Context, ps httprouter.Params) conte
 	return context.WithValue(ctx, RouterParamKey, ps)
 }
 
-func GetRouterParamsFromContext(ctx context.Context) (ps httprouter.Params) {
-	params, ok := ctx.Value(RouterParamKey).(httprouter.Params)
-	if !ok {
-		return httprouter.Params{}
-	}
-	return params
-}
-
 func FetchRouterParamsFromContext(ctx context.Context, keys ...string) (map[string]string, error) {
-	res := make(map[string]string)
 	var r string
-	ps := GetRouterParamsFromContext(ctx)
+	res := make(map[string]string)
+	ps, ok := ctx.Value(RouterParamKey).(httprouter.Params)
+	if !ok {
+		ps = httprouter.Params{}
+	}
 	for _, key := range keys {
 		r = ps.ByName(key)
-		if len(r) == 0 {
-			return map[string]string{}, errors.New(`Router param "` + key + `" not given.`)
+		if len(strings.TrimSpace(r)) == 0 {
+			return map[string]string{}, errors.New(`Router param "` + key + `" empty.`)
 		}
 		res[key] = r
 	}
