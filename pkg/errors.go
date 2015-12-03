@@ -23,3 +23,20 @@ func HttpError(rw http.ResponseWriter, err error, code int) {
 	LogError(err, code)
 	http.Error(rw, err.Error(), code)
 }
+
+func GetErrorStack(err interface{}) string {
+	if err == nil {
+		return ""
+	}
+	if e, ok := err.(*errors.Error); ok {
+		return e.ErrorStack()
+	}
+	return ""
+}
+
+func GetErrorMessage(err error) string {
+	if err == nil {
+		return ""
+	}
+	return err.Error()
+}
