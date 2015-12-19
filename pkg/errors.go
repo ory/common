@@ -6,13 +6,18 @@ import (
 )
 
 var (
-	ErrNotFound = errors.New("not found.")
+	ErrNotFound       = errors.New("Not found")
+	ErrInvalidPayload = errors.New("Invalid payload")
 )
 
 func WriteError(w http.ResponseWriter, err error) {
 	if err == ErrNotFound {
 		LogError(err, http.StatusNotFound)
 		http.Error(w, err.Error(), http.StatusNotFound)
+		return
+	} else if err == ErrInvalidPayload {
+		LogError(err, http.StatusBadRequest)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 	LogError(err, http.StatusInternalServerError)
