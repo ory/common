@@ -8,6 +8,8 @@ import (
 var (
 	ErrNotFound       = errors.New("Not found")
 	ErrInvalidPayload = errors.New("Invalid payload")
+	ErrUnauthorized   = errors.New("Unauthorized")
+	ErrForbidden      = errors.New("Forbidden")
 )
 
 func WriteError(w http.ResponseWriter, err error) {
@@ -18,6 +20,14 @@ func WriteError(w http.ResponseWriter, err error) {
 	} else if err == ErrInvalidPayload {
 		LogError(err, http.StatusBadRequest)
 		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	} else if err == ErrUnauthorized {
+		LogError(err, http.StatusUnauthorized)
+		http.Error(w, err.Error(), http.StatusUnauthorized)
+		return
+	} else if err == ErrForbidden {
+		LogError(err, http.StatusForbidden)
+		http.Error(w, err.Error(), http.StatusForbidden)
 		return
 	}
 	LogError(err, http.StatusInternalServerError)
