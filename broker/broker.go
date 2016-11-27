@@ -31,9 +31,12 @@ type Container struct {
 	Payload   interface{} `json:"p"`
 }
 
-
 type stackTracer interface {
 	StackTrace() errors.StackTrace
+}
+
+func (h *Broker) RID(r *http.Request) string {
+	return r.Header.Get("X-REQUEST-ID")
 }
 
 func (h *Broker) GetTimeout() time.Duration {
@@ -107,6 +110,25 @@ func (h *Broker) Request(message string, rid string, in, out interface{}) (*Cont
 	}
 
 	return h.Parse(rep, out)
+}
+
+func (h *Broker) Publish(message string, rid string, in interface{}) (error) {
+	p, err := json.Marshal(&Container{
+		ID: uuid.New(),
+		Version: h.Version,
+		Payload: in,
+		Status: http.StatusOK,
+		RequestID: rid,
+	})
+	if err != nil {
+		return errors.Wrap(err, "")
+	}
+
+	if err := h.N.Publish(message, p); err != nil {
+		return errors.Wrap(err, "")
+	}
+
+	return nil
 }
 
 func (h *Broker) WriteErrorCode(message string, rid string, code int, err error) {
