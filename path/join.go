@@ -11,6 +11,6 @@ func Join(u string, paths ...string) string {
 	if err != nil {
 		logrus.WithError(err).WithField("url", u).Panic("Could not parse url")
 	}
-	ur.Path = path.Join(ur.Path, paths...)
+	ur.Path = path.Join(append([]string{ur.Path}, paths...)...)
 	return ur.String()
 }
