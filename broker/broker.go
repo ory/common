@@ -17,10 +17,19 @@ type jsonError struct {
 }
 
 type Broker struct {
-	Logger  logrus.Logger
+	Logger  *logrus.Logger
 	N       *nats.Conn
 	Version string
 	Timeout time.Duration
+}
+
+func New(n *nats.Conn, version string) *Broker {
+	return &Broker{
+		Logger: logrus.New(),
+		Version: version,
+		N: n,
+		Timeout: time.Second * 5,
+	}
 }
 
 type Container struct {
@@ -75,18 +84,24 @@ func (h *Broker) WriteCode(message string, rid string, code int, e interface{}) 
 }
 
 func (h *Broker) Parse(m *nats.Msg, e interface{}) (*Container, error) {
-	var c = &Container{Payload: e}
+	var c = &Container{}
 	if err := json.Unmarshal(m.Data, c); err != nil {
 		return c, errors.Wrap(err, "Could not unmarshal message container")
 	}
 
 	if c.Status < 200 || c.Status >= 300 {
 		var e jsonError
-		if err := json.Unmarshal(m.Data, &e); err != nil {
+		c = &Container{Payload: &e}
+		if err := json.Unmarshal(m.Data, c); err != nil {
 			return c, errors.Wrap(err, "Could not unmarshal message error")
 		}
 
-		return c, errors.Errorf("An error (code: %d) occurred on the other side: ", c.Status, e.Message)
+		return c, errors.Errorf("An error code (%d) occurred on the other side: %s", c.Status, e.Message)
+	}
+
+	c = &Container{Payload: e}
+	if err := json.Unmarshal(m.Data, c); err != nil {
+		return c, errors.Wrap(err, "Could not unmarshal message container")
 	}
 
 	return c, nil
@@ -129,6 +144,15 @@ func (h *Broker) Publish(message string, rid string, in interface{}) (error) {
 	}
 
 	return nil
+}
+
+func (h *Broker) MessageLogger(f func (m *nats.Msg)) func (m *nats.Msg) {
+	return func (m *nats.Msg) {
+		c, _ := h.Parse(m, nil)
+		logrus.WithField("id", c.ID).WithField("request", c.RequestID).WithField("subject", m.Subject).Info("Received message")
+		f(m)
+		logrus.WithField("id", c.ID).WithField("request", c.RequestID).WithField("subject", m.Subject).Info("Handled message")
+	}
 }
 
 func (h *Broker) WriteErrorCode(message string, rid string, code int, err error) {
