@@ -45,7 +45,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestBroker(t *testing.T) {
-	b := Broker{N: nc}
+	b := New(nc, "0.0.1")
 
 	type req struct{ Foo string `json:"foo"` }
 	type res struct{ Bar string `json:"bar"` }
