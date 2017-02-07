@@ -9,7 +9,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
-	"gopkg.in/ory-am/dockertest.v3"
+	"gopkg.in/ory/dockertest.v3"
 	"gopkg.in/redis.v5"
 )
 

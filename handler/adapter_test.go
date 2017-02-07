@@ -1,7 +1,7 @@
 package handler_test
 
 import (
-	. "github.com/ory-am/common/handler"
+	. "github.com/ory/common/handler"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/net/context"
 	"net/http"

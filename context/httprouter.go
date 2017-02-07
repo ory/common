@@ -3,7 +3,7 @@ package context
 import (
 	"github.com/go-errors/errors"
 	"github.com/julienschmidt/httprouter"
-	"github.com/ory-am/common/handler"
+	"github.com/ory/common/handler"
 	"golang.org/x/net/context"
 	"strings"
 )

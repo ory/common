@@ -1,4 +1,4 @@
-package: github.com/ory-am/common
+package: github.com/ory/common
 import:
 - package: github.com/Sirupsen/logrus
   version: ~0.11.0
@@ -27,7 +27,7 @@ import:
   - context
 - package: gopkg.in/dancannon/gorethink.v2
   version: ~3.0.0
-- package: gopkg.in/ory-am/dockertest.v3
+- package: gopkg.in/ory/dockertest.v3
   version: ~3.0.4
 - package: gopkg.in/redis.v5
   version: ~5.1.6

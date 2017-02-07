@@ -126,7 +126,7 @@ imports:
   - encoding
   - ql2
   - types
-- name: gopkg.in/ory-am/dockertest.v3
+- name: gopkg.in/ory/dockertest.v3
   version: e4828e807797a7641fcd457716870dfc2f9e82ff
 - name: gopkg.in/redis.v5
   version: b7bae3a78050e2e7ec2130a05cde296a9ff2e9c0

@@ -1,7 +1,7 @@
 package pkg_test
 
 import "testing"
-import . "github.com/ory-am/common/pkg"
+import . "github.com/ory/common/pkg"
 
 func TestAssertObjectsAreEqualByKeys(t *testing.T) {
 	type foo struct {
