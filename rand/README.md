@@ -3,7 +3,7 @@ A library based on crypto/rand to create random sequences, which are cryptograph
 
 ## Install
 
-Run `go get github.com/ory-am/common/rand`
+Run `go get github.com/ory/common/rand`
 
 ## Usage
 
@@ -12,7 +12,7 @@ Run `go get github.com/ory-am/common/rand`
 Create a random integer using [crypto/rand.Read](http://golang.org/pkg/crypto/rand/#Read):
 
 ```
-import "github.com/ory-am/common/rand/numeric"
+import "github.com/ory/common/rand/numeric"
 import "fmt"
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 Create a random string using [crypto/rand.Read](http://golang.org/pkg/crypto/rand/#Read):
 
 ```
-import "github.com/ory-am/common/rand/sequence"
+import "github.com/ory/common/rand/sequence"
 import "fmt"
 
 func main() {

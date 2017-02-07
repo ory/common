@@ -3,7 +3,7 @@ package broker
 import (
 	"fmt"
 	"os"
-	"gopkg.in/ory-am/dockertest.v3"
+	"gopkg.in/ory/dockertest.v3"
 	"log"
 	"testing"
 	"github.com/nats-io/go-nats"

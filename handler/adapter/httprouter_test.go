@@ -2,8 +2,8 @@ package adapter
 
 import (
 	"github.com/julienschmidt/httprouter"
-	cc "github.com/ory-am/common/context"
-	"github.com/ory-am/common/handler"
+	cc "github.com/ory/common/context"
+	"github.com/ory/common/handler"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/net/context"
 	"net/http"

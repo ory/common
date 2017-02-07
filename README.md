@@ -1,7 +1,7 @@
-# ory-am/common
+# ory/common
 
-[![Build Status](https://travis-ci.org/ory-am/common.svg)](https://travis-ci.org/ory-am/common)
-[![Coverage Status](https://coveralls.io/repos/ory-am/common/badge.svg?branch=master&service=github)](https://coveralls.io/github/ory-am/common?branch=master)
+[![Build Status](https://travis-ci.org/ory/common.svg)](https://travis-ci.org/ory/common)
+[![Coverage Status](https://coveralls.io/repos/ory/common/badge.svg?branch=master&service=github)](https://coveralls.io/github/ory/common?branch=master)
 
 A library for common tasks:
 
