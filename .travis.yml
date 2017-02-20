@@ -1,5 +1,7 @@
 language: go
 
+go_import_path: github.com/ory-am/common
+
 services:
   - docker
 
