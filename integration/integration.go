@@ -1,7 +1,7 @@
 package integration
 
 import (
-	r "gopkg.in/dancannon/gorethink.v3"
+	r "gopkg.in/gorethink/gorethink.v3"
 	"log"
 	"time"
 
