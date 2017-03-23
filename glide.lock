@@ -1,5 +1,5 @@
-hash: 696249e3dc3abc38839b5c5f289a635a67b2127d0dc5574a018fe8e93e9f5530
-updated: 2017-03-06T11:37:21.897029672+01:00
+hash: dd0aecafc28342d85e871acedc7b8af0a1ad5726e366c31051c1832ee001cf09
+updated: 2017-03-23T14:29:46.715128664+01:00
 imports:
 - name: github.com/Azure/go-ansiterm
   version: fa152c58bc15761d0200cb75fe958b89a9d4888e
@@ -51,12 +51,22 @@ imports:
   version: 4a934a8fd3ec3d4f84d9dcd8b47e7b277918c366
 - name: github.com/go-errors/errors
   version: 8fa88b06e5974e97fbf9899a7f86a344bfd1f105
+- name: github.com/go-redis/redis
+  version: 2cf5af9928978bbef8d1076607022403439e177c
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
 - name: github.com/go-sql-driver/mysql
   version: a0583e0143b1624142adab07e0e97fe106d99561
 - name: github.com/golang/protobuf
   version: 69b215d01a5606c843240eab4937eab3acee6530
   subpackages:
   - proto
+- name: github.com/gorethink/gorethink
+  version: 610fcc04c971a9fa42f1b6625c7c52b5bb472c51
 - name: github.com/hailocab/go-hostpool
   version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
 - name: github.com/hashicorp/go-cleanhttp
@@ -103,7 +113,7 @@ imports:
   subpackages:
   - difflib
 - name: github.com/Sirupsen/logrus
-  version: 0208149b40d863d2c1a2f8fe5753096a9cf2cc8b
+  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: github.com/stretchr/testify
   version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
   subpackages:
@@ -133,12 +143,4 @@ imports:
   - types
 - name: gopkg.in/ory-am/dockertest.v3
   version: 0944e3b802903cb0515b253fb8fe758b019bb052
-- name: gopkg.in/redis.v5
-  version: ""
-  subpackages:
-  - internal
-  - internal/consistenthash
-  - internal/hashtag
-  - internal/pool
-  - internal/proto
 testImports: []
