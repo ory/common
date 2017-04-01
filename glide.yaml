@@ -29,5 +29,5 @@ import:
   version: ~3.0.1
 - package: gopkg.in/ory-am/dockertest.v3
   version: ~3.0.5
-- package: gopkg.in/redis.v5
-  version: ~5.2.9
+- package: github.com/go-redis/redis
+  version: ~6.0.0
