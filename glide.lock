@@ -1,5 +1,5 @@
-hash: f07226aeb4f71c9675ff89e44e6c7999cda4d393e48f7214d5a19a28d797b4af
-updated: 2017-04-01T16:40:13.8063416+02:00
+hash: 086f6f44f40886805ffa31ea50c1fb18149f18d5eb873103ab5f04696007de68
+updated: 2017-04-01T16:51:11.0679484+02:00
 imports:
 - name: github.com/Azure/go-ansiterm
   version: fa152c58bc15761d0200cb75fe958b89a9d4888e
@@ -65,6 +65,8 @@ imports:
   version: 69b215d01a5606c843240eab4937eab3acee6530
   subpackages:
   - proto
+- name: github.com/GoRethink/gorethink
+  version: 610fcc04c971a9fa42f1b6625c7c52b5bb472c51
 - name: github.com/hailocab/go-hostpool
   version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
 - name: github.com/hashicorp/go-cleanhttp
@@ -73,8 +75,6 @@ imports:
   version: f4076845477b10ac2453a16377a8383467aafe72
   subpackages:
   - reflectx
-- name: github.com/julienschmidt/httprouter
-  version: 8c199fb6259ffc1af525cc3ad52ee60ba8359669
 - name: github.com/lib/pq
   version: ba5d4f7a35561e22fbdf7a39aa0070f4d460cfc0
   subpackages:
@@ -97,6 +97,8 @@ imports:
   subpackages:
   - libcontainer/system
   - libcontainer/user
+- name: github.com/ory-am/dockertest
+  version: 0944e3b802903cb0515b253fb8fe758b019bb052
 - name: github.com/pborman/uuid
   version: a97ce2ca70fa5a848076093f05e639a89ca34d06
 - name: github.com/pkg/errors
@@ -134,6 +136,6 @@ imports:
   - encoding
   - ql2
   - types
+testImports:
 - name: gopkg.in/ory-am/dockertest.v3
   version: 0944e3b802903cb0515b253fb8fe758b019bb052
-testImports: []
