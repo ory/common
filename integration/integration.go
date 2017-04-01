@@ -1,7 +1,7 @@
 package integration
 
 import (
-	r "gopkg.in/gorethink/gorethink.v3"
+	r "github.com/GoRethink/gorethink"
 	"log"
 	"time"
 
@@ -9,7 +9,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
-	"gopkg.in/ory-am/dockertest.v3"
+	"github.com/ory-am/dockertest"
 	"github.com/go-redis/redis"
 )
 
