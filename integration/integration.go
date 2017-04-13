@@ -1,15 +1,16 @@
 package integration
 
 import (
-	r "gopkg.in/gorethink/gorethink.v3"
+	"fmt"
 	"log"
 	"time"
-	"fmt"
+
+	"github.com/go-redis/redis"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"github.com/ory-am/dockertest"
-	"github.com/go-redis/redis"
+	r "gopkg.in/gorethink/gorethink.v3"
 )
 
 var resources []*dockertest.Resource
