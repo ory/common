@@ -1,10 +1,9 @@
 package integration
 
 import (
-	r "github.com/GoRethink/gorethink"
+	r "gopkg.in/gorethink/gorethink.v3"
 	"log"
 	"time"
-
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"

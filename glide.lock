@@ -1,5 +1,5 @@
-hash: 086f6f44f40886805ffa31ea50c1fb18149f18d5eb873103ab5f04696007de68
-updated: 2017-04-01T16:51:11.0679484+02:00
+hash: 6d38ad4fa02fcabcf8fcc18b65a2a2a531e8f36ed556e3d5f47289c531210529
+updated: 2017-04-14T00:13:36.9228453+02:00
 imports:
 - name: github.com/Azure/go-ansiterm
   version: fa152c58bc15761d0200cb75fe958b89a9d4888e
@@ -52,7 +52,7 @@ imports:
 - name: github.com/go-errors/errors
   version: 8fa88b06e5974e97fbf9899a7f86a344bfd1f105
 - name: github.com/go-redis/redis
-  version: 2cf5af9928978bbef8d1076607022403439e177c
+  version: 62ecc61210cb7dd8ca9aebb8bebbc849c358383b
   subpackages:
   - internal
   - internal/consistenthash
@@ -65,8 +65,6 @@ imports:
   version: 69b215d01a5606c843240eab4937eab3acee6530
   subpackages:
   - proto
-- name: github.com/GoRethink/gorethink
-  version: 610fcc04c971a9fa42f1b6625c7c52b5bb472c51
 - name: github.com/hailocab/go-hostpool
   version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
 - name: github.com/hashicorp/go-cleanhttp
@@ -84,7 +82,7 @@ imports:
 - name: github.com/nats-io/go-nats
   version: 61923ed1eaf8398000991fbbee2ef11ab5a5be0d
 - name: github.com/nats-io/nats
-  version: 399fe00b07f048bdacbdbfdfeda39712642e6a11
+  version: 6949c8e06a246e4177961aab22940b5c411e48f0
   subpackages:
   - encoders/builtin
   - util
@@ -98,7 +96,7 @@ imports:
   - libcontainer/system
   - libcontainer/user
 - name: github.com/ory-am/dockertest
-  version: 0944e3b802903cb0515b253fb8fe758b019bb052
+  version: 0eb2fe9391ca8b96bd6bb5ee4cc22aa63291e61a
 - name: github.com/pborman/uuid
   version: a97ce2ca70fa5a848076093f05e639a89ca34d06
 - name: github.com/pkg/errors
@@ -138,4 +136,4 @@ imports:
   - types
 testImports:
 - name: gopkg.in/ory-am/dockertest.v3
-  version: 0944e3b802903cb0515b253fb8fe758b019bb052
+  version: 0eb2fe9391ca8b96bd6bb5ee4cc22aa63291e61a
