@@ -1,7 +1,9 @@
 package pkg
 
-import "github.com/go-errors/errors"
-import log "github.com/Sirupsen/logrus"
+import (
+	"github.com/go-errors/errors"
+	log "github.com/sirupsen/logrus"
+)
 
 func LogError(err error, code int) {
 	stack := "not available."
