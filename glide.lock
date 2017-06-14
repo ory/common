@@ -1,5 +1,5 @@
-hash: 6d38ad4fa02fcabcf8fcc18b65a2a2a531e8f36ed556e3d5f47289c531210529
-updated: 2017-04-14T00:13:36.9228453+02:00
+hash: befa63dc8582d3709cab8d4c388b4ceff21aa301c48da786bb871ba7e6d37ac8
+updated: 2017-06-14T18:37:16.718704846+02:00
 imports:
 - name: github.com/Azure/go-ansiterm
   version: fa152c58bc15761d0200cb75fe958b89a9d4888e
@@ -8,13 +8,13 @@ imports:
 - name: github.com/cenk/backoff
   version: 32cd0c5b3aef12c76ed64aaf678f6c79736be7dc
 - name: github.com/cenkalti/backoff
-  version: b02f2bbce11d7ea6b97f282ef1771b0fe2f65ef3
+  version: 5d150e7eec023ce7a124856b37c68e54b4050ac7
 - name: github.com/davecgh/go-spew
   version: 6d212800a42e8ab5c146b8ace3490ee17e5225f9
   subpackages:
   - spew
 - name: github.com/docker/docker
-  version: 092cba3727bb9b4a2f0e922cd6c0f93ea270e363
+  version: 4845c567eb35d68f35b0b1713a09b0c8d47fe67e
   subpackages:
   - api/types
   - api/types/blkiodev
@@ -42,13 +42,13 @@ imports:
   - pkg/term
   - pkg/term/windows
 - name: github.com/docker/go-connections
-  version: 1b14b2d192e2f91cdc2bc6bf9aee0b0e116eed42
+  version: e15c02316c12de00874640cd76311849de2aeed5
   subpackages:
   - nat
 - name: github.com/docker/go-units
   version: 0dadbb0345b35ec7ef35e228dabb8de89a65bf52
 - name: github.com/fsouza/go-dockerclient
-  version: 54fbd1ff920ca5fd5ec53068d513c14c3a25bba9
+  version: 9e921e30db8bcc1221fa0485ad9ce5b195fb4445
 - name: github.com/go-errors/errors
   version: 8fa88b06e5974e97fbf9899a7f86a344bfd1f105
 - name: github.com/go-redis/redis
@@ -62,7 +62,7 @@ imports:
 - name: github.com/go-sql-driver/mysql
   version: a0583e0143b1624142adab07e0e97fe106d99561
 - name: github.com/golang/protobuf
-  version: 69b215d01a5606c843240eab4937eab3acee6530
+  version: 2402d76f3d41f928c7902a765dfc872356dd3aad
   subpackages:
   - proto
 - name: github.com/hailocab/go-hostpool
@@ -70,33 +70,35 @@ imports:
 - name: github.com/hashicorp/go-cleanhttp
   version: 3573b8b52aa7b37b9358d966a898feb387f62437
 - name: github.com/jmoiron/sqlx
-  version: f4076845477b10ac2453a16377a8383467aafe72
+  version: d9bd385d68c068f1fabb5057e3dedcbcbb039d0f
   subpackages:
   - reflectx
 - name: github.com/lib/pq
-  version: ba5d4f7a35561e22fbdf7a39aa0070f4d460cfc0
+  version: 8837942c3e09574accbc5f150e2c5e057189cace
   subpackages:
   - oid
 - name: github.com/Microsoft/go-winio
-  version: fff283ad5116362ca252298cfc9b95828956d85d
+  version: f533f7a102197536779ea3a8cb881d639e21ec5a
 - name: github.com/nats-io/go-nats
   version: 61923ed1eaf8398000991fbbee2ef11ab5a5be0d
 - name: github.com/nats-io/nats
-  version: 6949c8e06a246e4177961aab22940b5c411e48f0
+  version: 0f25ebdb0f66fac3de939396a6eeb64d3cee23cd
   subpackages:
   - encoders/builtin
   - util
 - name: github.com/nats-io/nuid
   version: 3cf34f9fca4e88afa9da8eabd75e3326c9941b44
+- name: github.com/Nvveen/Gotty
+  version: cd527374f1e5bff4938207604a14f2e38a9cf512
 - name: github.com/oleiade/reflections
   version: 2b6ec3da648e3e834dc41bad8d9ed7f2dc6a9496
 - name: github.com/opencontainers/runc
-  version: 02141ce862d87ae7c0194880720e266111ac8b96
+  version: c995ee407bdd9b2c3f649b42527fe3e02894096e
   subpackages:
   - libcontainer/system
   - libcontainer/user
 - name: github.com/ory-am/dockertest
-  version: 0eb2fe9391ca8b96bd6bb5ee4cc22aa63291e61a
+  version: 9d0647ae761f96a6738c5afb49688d22979b21ff
 - name: github.com/pborman/uuid
   version: a97ce2ca70fa5a848076093f05e639a89ca34d06
 - name: github.com/pkg/errors
@@ -106,34 +108,37 @@ imports:
   subpackages:
   - difflib
 - name: github.com/Sirupsen/logrus
-  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
+  version: 202f25545ea4cf9b191ff7f846df5d87c9382c2b
+  repo: https://github.com/sirupsen/logrus.git
+- name: github.com/sirupsen/logrus
+  version: 202f25545ea4cf9b191ff7f846df5d87c9382c2b
 - name: github.com/stretchr/testify
   version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
   subpackages:
   - assert
   - require
 - name: golang.org/x/crypto
-  version: 453249f01cfeb54c3d549ddb75ff152ca243f9d8
+  version: 850760c427c516be930bc91280636328f1a62286
   subpackages:
   - pbkdf2
 - name: golang.org/x/net
-  version: dd2d9a67c97da0afa00d5726e28086007a0acce5
+  version: f315505cf3349909cdf013ea56690da34e96a451
   subpackages:
   - context
   - context/ctxhttp
 - name: golang.org/x/sys
-  version: e4594059fe4cde2daf423055a596c2cd1e6c9adf
+  version: 0b25a408a50076fbbcae6b7ac0ea5fbb0b085e79
   subpackages:
   - unix
   - windows
 - name: gopkg.in/fatih/pool.v2
   version: 6e328e67893eb46323ad06f0e92cb9536babbabc
 - name: gopkg.in/gorethink/gorethink.v3
-  version: 610fcc04c971a9fa42f1b6625c7c52b5bb472c51
+  version: 7ab832f7b65573104a555d84a27992ae9ea1f659
   subpackages:
   - encoding
   - ql2
   - types
 testImports:
 - name: gopkg.in/ory-am/dockertest.v3
-  version: 0eb2fe9391ca8b96bd6bb5ee4cc22aa63291e61a
+  version: 9d0647ae761f96a6738c5afb49688d22979b21ff

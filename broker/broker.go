@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/nats-io/go-nats"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	log "github.com/sirupsen/logrus"
 )
 
 type jsonError struct {
@@ -18,7 +18,7 @@ type jsonError struct {
 }
 
 type Broker struct {
-	Logger  *logrus.Logger
+	Logger  *log.Logger
 	N       *nats.Conn
 	Version string
 	Timeout time.Duration
@@ -26,7 +26,7 @@ type Broker struct {
 
 func New(n *nats.Conn, version string) *Broker {
 	return &Broker{
-		Logger:  logrus.New(),
+		Logger:  log.New(),
 		Version: version,
 		N:       n,
 		Timeout: time.Second * 5,
@@ -150,9 +150,9 @@ func (h *Broker) Publish(message string, rid string, in interface{}) error {
 func (h *Broker) MessageLogger(f func(m *nats.Msg)) func(m *nats.Msg) {
 	return func(m *nats.Msg) {
 		c, _ := h.Parse(m, nil)
-		logrus.WithField("id", c.ID).WithField("request", c.RequestID).WithField("subject", m.Subject).Info("Received message")
+		log.WithField("id", c.ID).WithField("request", c.RequestID).WithField("subject", m.Subject).Info("Received message")
 		f(m)
-		logrus.WithField("id", c.ID).WithField("request", c.RequestID).WithField("subject", m.Subject).Info("Handled message")
+		log.WithField("id", c.ID).WithField("request", c.RequestID).WithField("subject", m.Subject).Info("Handled message")
 	}
 }
 
