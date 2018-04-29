@@ -1,5 +1,5 @@
-hash: 6d38ad4fa02fcabcf8fcc18b65a2a2a531e8f36ed556e3d5f47289c531210529
-updated: 2017-04-14T00:13:36.9228453+02:00
+hash: 7986fc257d49ed66f71e8d65359e3d5fffb41a0ccc8e440620160a1399d0ecf9
+updated: 2018-04-29T18:46:12.548602807+04:30
 imports:
 - name: github.com/Azure/go-ansiterm
   version: fa152c58bc15761d0200cb75fe958b89a9d4888e
@@ -14,7 +14,7 @@ imports:
   subpackages:
   - spew
 - name: github.com/docker/docker
-  version: 092cba3727bb9b4a2f0e922cd6c0f93ea270e363
+  version: 89658bed64c2a8fe05a978e5b87dbec409d57a0f
   subpackages:
   - api/types
   - api/types/blkiodev
@@ -88,6 +88,8 @@ imports:
   - util
 - name: github.com/nats-io/nuid
   version: 3cf34f9fca4e88afa9da8eabd75e3326c9941b44
+- name: github.com/Nvveen/Gotty
+  version: cd527374f1e5bff4938207604a14f2e38a9cf512
 - name: github.com/oleiade/reflections
   version: 2b6ec3da648e3e834dc41bad8d9ed7f2dc6a9496
 - name: github.com/opencontainers/runc
@@ -96,7 +98,7 @@ imports:
   - libcontainer/system
   - libcontainer/user
 - name: github.com/ory-am/dockertest
-  version: 0eb2fe9391ca8b96bd6bb5ee4cc22aa63291e61a
+  version: 6d57cd43b964e928111542771659af6a3a58521f
 - name: github.com/pborman/uuid
   version: a97ce2ca70fa5a848076093f05e639a89ca34d06
 - name: github.com/pkg/errors
@@ -106,6 +108,10 @@ imports:
   subpackages:
   - difflib
 - name: github.com/Sirupsen/logrus
+  version: 778f2e774c725116edbc3d039dc0dfc1cc62aae8
+  repo: https://github.com/sirupsen/logrus.git
+  vcs: git
+- name: github.com/sirupsen/logrus
   version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: github.com/stretchr/testify
   version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
@@ -116,6 +122,7 @@ imports:
   version: 453249f01cfeb54c3d549ddb75ff152ca243f9d8
   subpackages:
   - pbkdf2
+  - ssh/terminal
 - name: golang.org/x/net
   version: dd2d9a67c97da0afa00d5726e28086007a0acce5
   subpackages:
@@ -129,11 +136,11 @@ imports:
 - name: gopkg.in/fatih/pool.v2
   version: 6e328e67893eb46323ad06f0e92cb9536babbabc
 - name: gopkg.in/gorethink/gorethink.v3
-  version: 610fcc04c971a9fa42f1b6625c7c52b5bb472c51
+  version: 7f5bdfd858bb064d80559b2a32b86669c5de5d3b
   subpackages:
   - encoding
   - ql2
   - types
 testImports:
 - name: gopkg.in/ory-am/dockertest.v3
-  version: 0eb2fe9391ca8b96bd6bb5ee4cc22aa63291e61a
+  version: 6d57cd43b964e928111542771659af6a3a58521f

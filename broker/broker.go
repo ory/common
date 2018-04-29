@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/nats-io/go-nats"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
