@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 )
 
 func Join(u string, paths ...string) string {
